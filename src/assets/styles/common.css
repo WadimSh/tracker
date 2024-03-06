@@ -12,8 +12,10 @@
 
 /*Переменные CSS для шрифтов*/
 --font-family: "Inter", sans-serif;
---font-size-base: 1rem;
---font-size-large: 1.25rem;
+--font-size-base: 0.875rem;
+--font-size-xlarge: 1.25rem;
+--font-size-large: 1.125rem;
+--font-size-medium: 1rem;
 --font-size-small: 0.75rem;
 --line-height-fixed-amount: 0.35rem;
 --line-height-relative-amount: 1.1em;
@@ -22,9 +24,10 @@
 /*Переменные CSS для отступов*/
 --spacing-base: 1rem;
 --spacing-large: 1.5rem;
+--spacing-medium: 1.25rem;
 --spacing-small: 0.5rem;
---padding-base: 1rem;
---margin-base: 1rem;
+--padding-base: 0.5rem;
+--margin-base: 0.5rem;
 
 /*Переменные CSS для других стилей*/
 --border-radius-base: 4px;
@@ -37,7 +40,7 @@
 --breakpoint-mobile: 576px;
 --breakpoint-tablet: 768px;
 --breakpoint-desktop: 992px;
---container-max-width: 1200px;
+--container-width: clamp(18.75rem, 2.679rem + 80.357vw, 75rem);
 }
 
 @-moz-document url-prefix() {
