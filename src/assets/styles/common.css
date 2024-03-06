@@ -1,0 +1,79 @@
+:root {
+/*Переменные CSS для цветовой палитры*/
+--color-bg-primary: #ADD8E6;
+--color-bg-secondary: #ffffff;
+--color-text-primary: #333333;
+--color-text-secondary: #666666;
+--color-text-tertiary: #999999;
+--color-accent: #396ec4;
+--color-error: #dc3545;
+--color-success: #28a745;
+--color-warning: #ffc107;
+
+/*Переменные CSS для шрифтов*/
+--font-family: "Inter", sans-serif;
+--font-size-base: 1rem;
+--font-size-large: 1.25rem;
+--font-size-small: 0.75rem;
+--line-height-fixed-amount: 0.35rem;
+--line-height-relative-amount: 1.1em;
+--line-height: calc(var(--line-height-fixed-amount) + var(--line-height-relative-amount));
+
+/*Переменные CSS для отступов*/
+--spacing-base: 1rem;
+--spacing-large: 1.5rem;
+--spacing-small: 0.5rem;
+--padding-base: 1rem;
+--margin-base: 1rem;
+
+/*Переменные CSS для других стилей*/
+--border-radius-base: 4px;
+--box-shadow-base: 0 2px 4px rgba(0,0,0,0.1);
+--opacity-disabled: 0.5;
+--transition-duration: 0.3s;
+--z-index-dropdown: 10;
+
+/*Дополнительные переменные*/
+--breakpoint-mobile: 576px;
+--breakpoint-tablet: 768px;
+--breakpoint-desktop: 992px;
+--container-max-width: 1200px;
+}
+
+@-moz-document url-prefix() {
+	:root {
+		scrollbar-color: var(--color-bg-main) var(--color-bg-support);
+	}
+}
+
+/*Глобальные стили*/
+body {
+	padding: 0;
+	margin: 0;
+  color: var(--color-text-primary);
+  line-height: var(--line-height);
+	background: var(--color-bg-primary);
+  scrollbar-gutter: stable;
+}
+
+body::-webkit-scrollbar {
+	width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--color-bg-primary);
+}
+
+body::-webkit-scrollbar-thumb {
+	background: var(--color-text-tertiary);
+	border: 1px solid var(--color-bg-primary);
+	border-radius: 6px;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
