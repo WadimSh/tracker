@@ -1,5 +1,4 @@
 :root {
-/*Переменные CSS для цветовой палитры*/
 --color-bg-primary: #ADD8E6;
 --color-bg-secondary: #ffffff;
 --color-text-primary: #333333;
@@ -10,7 +9,6 @@
 --color-success: #28a745;
 --color-warning: #ffc107;
 
-/*Переменные CSS для шрифтов*/
 --font-family: "Inter", sans-serif;
 --font-size-base: 0.875rem;
 --font-size-xlarge: 1.25rem;
@@ -21,22 +19,14 @@
 --line-height-relative-amount: 1.1em;
 --line-height: calc(var(--line-height-fixed-amount) + var(--line-height-relative-amount));
 
-/*Переменные CSS для отступов*/
---spacing-base: 1rem;
---spacing-large: 1.5rem;
---spacing-medium: 1.25rem;
---spacing-small: 0.5rem;
---padding-base: 0.5rem;
---margin-base: 0.5rem;
+--spacing-base-size: 0.25rem;
 
-/*Переменные CSS для других стилей*/
---border-radius-base: 4px;
+--border-radius-base: var(--spacing-base-size);
 --box-shadow-base: 0 2px 4px rgba(0,0,0,0.1);
 --opacity-disabled: 0.5;
 --transition-duration: 0.3s;
 --z-index-dropdown: 10;
 
-/*Дополнительные переменные*/
 --breakpoint-mobile: 576px;
 --breakpoint-tablet: 768px;
 --breakpoint-desktop: 992px;
@@ -49,7 +39,6 @@
 	}
 }
 
-/*Глобальные стили*/
 body {
 	padding: 0;
 	margin: 0;
@@ -79,4 +68,18 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.custom-scroll::-webkit-scrollbar {
+	width: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+	background: var(--color-bg-support);
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+	background: var(--color-bg-support);
+	border: 1px solid var(--color-bg-main);
+	border-radius: 6px;
 }
