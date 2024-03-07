@@ -43,7 +43,7 @@
 }
 
 .text_color_inactive {
-  color: var(--color-text-tertiary);
+  color: var(--color-inactive);
 }
 
 .text_color_accent {

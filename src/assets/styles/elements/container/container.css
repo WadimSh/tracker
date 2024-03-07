@@ -1,4 +1,9 @@
 .container {
-  width: 100%;
-  
+  width: var(--container-width);
+  height: 100px;
+  background-color: var(--color-bg-secondary);
+  border: none;
+  border-radius: var(--border-radius-base);
+  box-shadow: var(--box-shadow-base);
+  box-sizing: border-box;
 }
