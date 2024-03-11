@@ -1,41 +1,63 @@
-import React, { useState } from "react";
-
-import Container from "../../ui/container/container";
+import React, { useRef, useState } from "react";
 
 const PrintSelector = () => {
-  const [show, setShow] = useState({ 1: false, 2: false, 3: false });
-  const [click, setClick] = useState({ 1: false, 2: false, 3: false });
+  const inputRef = useRef();
+  const [query, setQuery] = useState('');
 
-  const handleShow = (num) => {
-    setShow((prevState) => ({ ...prevState, [num]: !prevState[num] }));
+  const [value, setValue] = useState('');
+  const [list, setList] = useState(['ghbdtn', 'ffjcng', 'dichds', 'dnbcv']);
+  const [resaltSearch, setResaltSearch] = useState(list);
+    
+  const searchCard = (query) => {
+    let result = list.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+    setResaltSearch(result);
   };
 
-  const handleNext = (num) => {
-    setClick((prevState) => ({ ...prevState, [num]: true }));
-    handleShow(num);
-  };
-
-  const renderSelector = (number, title, buttonText, finalText) => {
-    return (
-      <Container
-        className='container column p-3 mt-2'
-      >
-        <div className='row' style={{ width: '100%' }}>
-          <h2 className="text text_type_title">{!click[number] ? title : finalText}</h2>
-          <button type="button" onClick={() => handleShow(number)}>+</button>
-        </div>
-        {show[number] && <div>
-          <button type="button" onClick={() => handleNext(number)}>{buttonText}</button>
-        </div>}
-      </Container>
-    )
+  const handleCline = () => {
+    setResaltSearch(list);
+    setValue('');
   }
 
+  const handleQueryChange = (e) => {
+    if (e.target.value === '') {
+      setResaltSearch(list);
+      setValue('');
+    } else {
+      setValue(e.target.value);
+      setQuery(e.target.value);
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchCard(query)
+  }
   return (
     <>
-      {renderSelector(1, 'Заголвок 1', 'Далее', 'Ваш выбор сделан')}
-      {click[1] && renderSelector(2, 'Заголвок 2', 'Далее', 'Ваш выбор сделан ещё раз')}
-      {click[2] && renderSelector(3, 'Заголвок 3', 'Заказать', 'Вы сделали заказ')}
+      <h1>Коммерческая печать на шарах</h1>
+      <form onSubmit={handleSubmit}>
+      <input
+        ref={inputRef}
+        value={value}
+        onChange={handleQueryChange}
+        type="text"
+        placeholder="Поиск..."
+        minLength="2"
+        maxLength="200"
+        autoComplete="off"
+        required
+      />
+      {value && <button 
+        onClick={handleCline}
+      >+</button>}
+      <button type="submit" >Найти</button>
+      </form>
+      {resaltSearch.map((item, index) => (
+        <div key={index}>
+          {item}
+        </div>
+      ))}
+      
     </>
   )
 };
