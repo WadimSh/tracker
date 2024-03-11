@@ -1,7 +1,6 @@
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 
 const PrintSelector = () => {
-  const inputRef = useRef();
   const [query, setQuery] = useState('');
 
   const [value, setValue] = useState('');
@@ -37,7 +36,6 @@ const PrintSelector = () => {
       <h1>Коммерческая печать на шарах</h1>
       <form onSubmit={handleSubmit}>
       <input
-        ref={inputRef}
         value={value}
         onChange={handleQueryChange}
         type="text"
